@@ -8,7 +8,8 @@ library(moderndive)
 library(skimr)
 library(lme4)
 library(foreign)
-
+install.packages("Matrix")
+library(Matrix)
 # ----------------------------------- Multilevel modelling -----------------------------------
 # --------------------------------------------------------------------------------------------
 
@@ -35,7 +36,6 @@ mydata %>%
 
 attach(mydata) # Attach the dataset.
 
-
 # ------------------------>>> Random intercept model.
 
 ## fitting a random intercept model (math ~ homework + (1|schnum)).
@@ -45,7 +45,6 @@ summary(modb0)
 ## plot (predmath vs homework).
 predmath<-fitted(modb0)
 xyplot(predmath ~ homework , mydata, groups=schnum, typ=c("p","l"), col="red")
-
 
 # ------------------------>>> Random slope and intercept model.
 
